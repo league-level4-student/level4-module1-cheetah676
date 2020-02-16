@@ -13,25 +13,52 @@ public class ArrayList <T>{
 	}
 	
 	public void add(T val) {
-		int[] nameArray=new int[name.length+1];
+		T[] nameArray=(T[]) new Object[name.length+1];
+		for(int i=0; i<nameArray.length-1; i++) {
+			nameArray[i]=name[i];
+		}
 	    nameArray[nameArray.length-1]=val;
-		name=nameArray[];
+		name=nameArray;
 	}
 	
 	public void insert(int loc, T val) throws IndexOutOfBoundsException {
-		
+		T[] nameArray=(T[]) new Object[name.length+1];
+		for(int i=0; i<nameArray.length; i++) {
+			if(i<loc) {
+			nameArray[i]=name[i];
+			}
+			else if(i==loc) {
+				nameArray[loc]=val;
+			}
+			else if(i>loc) {
+				nameArray[i]=name[i-1];
+			}
+		}
+		name=nameArray;
 	}
-	
 	public void set(int loc, T val) throws IndexOutOfBoundsException {
-		
+		name[loc]=val;
 	}
 	
 	public void remove(int loc) throws IndexOutOfBoundsException {
-		
+		T[] nameArray=(T[]) new Object[name.length-1];
+		for(int i=0; i<nameArray.length; i++) {
+			if(i>loc) {
+			nameArray[i]=name[i+1];
+			}
+			else {
+			nameArray[i]=name[i];
+			}
+		}
+		name=nameArray;
 	}
 	
 	public boolean contains(T val) {
-		
+		for(int i=0; i<name.length; i++) {
+			if(name[i]==val) {
+				return true;
+			}
+		}
 		return false;
 	}
 }
