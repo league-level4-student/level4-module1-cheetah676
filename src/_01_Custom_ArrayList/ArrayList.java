@@ -43,7 +43,7 @@ public class ArrayList <T>{
 	public void remove(int loc) throws IndexOutOfBoundsException {
 		T[] nameArray=(T[]) new Object[name.length-1];
 		for(int i=0; i<nameArray.length; i++) {
-			if(i>loc) {
+			if(i>=loc) {
 			nameArray[i]=name[i+1];
 			}
 			else {
@@ -60,5 +60,8 @@ public class ArrayList <T>{
 			}
 		}
 		return false;
+	}
+	public int size() {
+		return name.length;
 	}
 }
