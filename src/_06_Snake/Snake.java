@@ -36,8 +36,24 @@ public class Snake {
 	public void update() {
 		//1. use a switch statement to check on the currentDirection
 		//   of the snake and calculate its next x and y position.
-		
-
+		int x=getHeadLocation().x;
+		int y=getHeadLocation().y;
+		switch(currentDirection){
+		case UP:
+			y+=1;
+			break;
+		case DOWN:
+			y-=1;
+			break;
+		case LEFT:
+			x-=1;
+			break;
+		case RIGHT:
+			x+=1;
+			break;
+		default:
+			System.out.println("Something went wrong in update.");
+		}
 		//2. Iterate through the SnakeSegments in reverse order
 		//2a. Update each snake segment to the location of the segment 
 		//    in front of it.
