@@ -87,13 +87,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   of the game. The smaller the number, the faster it goes.
 		switch (choice) {
 		case "Beginner":
-			timer.setDelay(5);
+			timer.setDelay(500);
 			break;
 		case "Moderate":
-			timer.setDelay(3);
+			timer.setDelay(300);
 			break;
 		case "Expert":
-			timer.setDelay(1);
+			timer.setDelay(100);
 				break;
 				default:
 					JOptionPane.showMessageDialog(null, "You must pick a difficulty");
@@ -150,7 +150,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		Location location=new Location(rand.nextInt(WIDTH), rand.nextInt(HEIGHT));
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
-		while(snake.isLocationOnSnake(foodLocation)==true) {
+		while(snake.isLocationOnSnake(location)==true) {
+			System.out.println("hello");
 			location=new Location(rand.nextInt(WIDTH), rand.nextInt(HEIGHT));
 		
 	}
@@ -193,7 +194,7 @@ if(snake.isHeadCollidingWithBody() ||snake.isOutOfBounds()) {
 }
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-if(snake.getHeadLocation()==foodLocation) {
+if(snake.getHeadLocation().x==foodLocation.x && snake.getHeadLocation().y==foodLocation.y) {
 	snake.feed();
 	setFoodLocation();
 }
